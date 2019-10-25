@@ -1,6 +1,11 @@
 var glob = require('glob');
+var replace = require('gulp-replace');
 
 var helper = {
+    firstCharExp: /^([\s\S]{1})/g,
+    witeToBegin: function (code) {
+        return replace(this.firstCharExp, code + '\n\n$1')
+    },
     getFileList: function (list) {
         var fileArray = [];
         for(var k in list) {
