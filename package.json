@@ -1,0 +1,52 @@
+{
+  "_from": "jrails",
+  "_id": "jrails@0.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-SVbyjhgEt+YMzPdUymdnkOiRTPPqNw9DvL7xVetu8cTCQImSHcygq4oExfYzN0/X52REyYd1xHMirn4JuAE3nw==",
+  "_location": "/jrails",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "jrails",
+    "name": "jrails",
+    "escapedName": "jrails",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/jrails/-/jrails-0.0.1.tgz",
+  "_shasum": "55c996971fefbd3968041e83fb7f8866d9a6b555",
+  "_spec": "jrails",
+  "_where": "C:\\OSPanel\\domains\\jstpl\\rails",
+  "author": {
+    "name": "Yamshikov Vitaliy"
+  },
+  "bugs": {
+    "url": "https://github.com/jsrails/core/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "",
+  "homepage": "https://github.com/jsrails/core#readme",
+  "keywords": [
+    "js",
+    "rails",
+    "core"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "jrails",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jsrails/core.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.1"
+}
