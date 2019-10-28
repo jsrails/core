@@ -46,7 +46,7 @@
     "url": "git+ssh://git@github.com/jsrails/core.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "version": "0.0.2"
 }
