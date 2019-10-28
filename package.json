@@ -1,6 +1,6 @@
 {
   "_from": "jrails",
-  "_id": "jrails@0.0.1",
+  "_id": "jrails@0.0.2",
   "_inBundle": false,
   "_integrity": "sha512-SVbyjhgEt+YMzPdUymdnkOiRTPPqNw9DvL7xVetu8cTCQImSHcygq4oExfYzN0/X52REyYd1xHMirn4JuAE3nw==",
   "_location": "/jrails",
@@ -19,7 +19,7 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/jrails/-/jrails-0.0.1.tgz",
+  "_resolved": "https://registry.npmjs.org/jrails/-/jrails-0.0.2.tgz",
   "_shasum": "55c996971fefbd3968041e83fb7f8866d9a6b555",
   "_spec": "jrails",
   "_where": "C:\\OSPanel\\domains\\jstpl\\rails",
@@ -48,5 +48,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
