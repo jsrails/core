@@ -1,4 +1,4 @@
-space('bundle.spa.router', function() {
+define(['DirectorRouter'], function(DirectorRouter) {
 
     var store = {
         routes: {},
@@ -25,7 +25,7 @@ space('bundle.spa.router', function() {
         },
 
         init: function () {
-            store.routerInstance = Router(store.routes);
+            store.routerInstance = DirectorRouter(store.routes);
             store.routerInstance.init();
         },
 
