@@ -127,7 +127,7 @@ define(function() {
 
         add222: function (data, moduleElementId) {
             var layerHtml =
-                '<div class="page-layer" id="' + moduleElementId + '">' +
+                '<div class="page-layer" id="' + moduleElementId + '" style="display: none">' +
                 data +
                 '</div>';
             this.getWrapperElement().append(layerHtml);
