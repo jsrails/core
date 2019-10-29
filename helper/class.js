@@ -1,4 +1,5 @@
-space('bundle.helper.class', function() {
+
+define(['lodash', 'jrails/helper/php'], function(_, phpHelper) {
 
     /**
      * Работа с классами
@@ -191,7 +192,7 @@ space('bundle.helper.class', function() {
          * @param params
          */
         callConstructor: function(instance, params) {
-            if(bundle.helper.php.method_exists(instance, '__construct')) {
+            if(phpHelper.method_exists(instance, '__construct')) {
                 instance.__construct(params);
             }
         },

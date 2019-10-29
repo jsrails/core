@@ -1,9 +1,9 @@
-space(function() {
+define(['lodash', 'jrails/helper/class'], function(_, classHelper) {
 
     /**
      * Контейнер
      */
-    window.container =  {
+    return {
         /**
          * Создать экземпляр объекта
          *
@@ -14,9 +14,9 @@ space(function() {
          */
         instance: function (className, attributes, params) {
             if(_.isString(className)) {
-                className = use(className);
+                className = require([className]);
             }
-            return bundle.helper.class.create(className, attributes, params);
+            return classHelper.create(className, attributes, params);
         },
 
         /**

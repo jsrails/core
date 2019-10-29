@@ -1,4 +1,4 @@
-space('bundle.module.bootstrap.modal.modalService', function() {
+define(['jquery'], function($) {
 
     var helper = {
         renderHeader: function (content) {

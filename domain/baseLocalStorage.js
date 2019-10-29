@@ -1,6 +1,4 @@
-space('bundle.domain.baseLocalStorage', function() {
-
-    var localStorageHelper = bundle.helper.localStorage;
+define(['jrails/helper/localStorage'], function(localStorageHelper) {
 
     /**
      * Базовый класс для хранилища состояния в Local Storage

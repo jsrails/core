@@ -1,4 +1,4 @@
-space('bundle.event.eventService', function() {
+define(function() {
 
     /**
      * Работа с событиями

@@ -1,4 +1,4 @@
-space('bundle.notify.driver.toastrDriver', function() {
+define(['lodash', 'toastr'], function(_, toastr) {
 
     /**
      * Драйвер уведомлений для вендора toastr

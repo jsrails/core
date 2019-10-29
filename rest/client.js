@@ -1,4 +1,4 @@
-space('bundle.rest.client', function() {
+define(['lodash'], function(lodash) {
 
     var helper = {
 

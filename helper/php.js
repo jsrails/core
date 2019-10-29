@@ -1,4 +1,4 @@
-space('bundle.helper.php', function() {
+define(function() {
 
     /**
      * Аналоги функций из PHP SPL
