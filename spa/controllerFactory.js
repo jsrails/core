@@ -24,6 +24,9 @@ define(['jrails/vue/vm', 'jrails/spa/layer', 'jrails/spa/query', 'lodash'], func
         if(_.isFunction(controller.onReady)) {
             controller.onReady();
         }
+        if(_.isFunction(controller.run)) {
+            controller.run();
+        }
         if( ! _.isEmpty(controller.templateFile)) {
             loadTemplate(controller, controller.templateFile);
         }
