@@ -3,7 +3,7 @@ define(['lodash', 'jrails/helper/class'], function(_, classHelper) {
     /**
      * Контейнер
      */
-    return {
+    window.container = {
         /**
          * Создать экземпляр объекта
          *
@@ -30,5 +30,7 @@ define(['lodash', 'jrails/helper/class'], function(_, classHelper) {
         },
 
     };
+
+    return window.container;
 
 });

@@ -1,4 +1,4 @@
-define(function() {
+define(['jrails/notify/notifyTypeEnum'], function(notifyTypeEnum) {
 
     /**
      * Работа с пользовательскими уведомлениями
@@ -15,7 +15,7 @@ define(function() {
          * @param message текст сообщения
          */
         info: function (message) {
-            this.show(bundle.notify.notifyTypeEnum.info, message);
+            this.show(notifyTypeEnum.info, message);
         },
 
         /**
@@ -23,7 +23,7 @@ define(function() {
          * @param message текст сообщения
          */
         warning: function (message, options) {
-            this.show(bundle.notify.notifyTypeEnum.info, message, options);
+            this.show(notifyTypeEnum.info, message, options);
         },
 
         /**
@@ -31,7 +31,7 @@ define(function() {
          * @param message текст сообщения
          */
         success: function (message) {
-            this.show(bundle.notify.notifyTypeEnum.success, message);
+            this.show(notifyTypeEnum.success, message);
         },
 
         /**
@@ -39,7 +39,7 @@ define(function() {
          * @param message текст сообщения
          */
         error: function (message) {
-            this.show(bundle.notify.notifyTypeEnum.error, message);
+            this.show(notifyTypeEnum.error, message);
         },
 
         /**
@@ -47,12 +47,12 @@ define(function() {
          * @param message текст сообщения
          */
         danger: function (message) {
-            this.show(bundle.notify.notifyTypeEnum.danger, message);
+            this.show(notifyTypeEnum.danger, message);
         },
 
         /**
          * Показать сообщение любого типа
-         * @param type тип сообщения (перечнь типов смотреть в классе bundle.notify.notifyTypeEnum)
+         * @param type тип сообщения (перечнь типов смотреть в классе notifyTypeEnum)
          * @param message текст сообщения
          */
         show: function (type, message) {
