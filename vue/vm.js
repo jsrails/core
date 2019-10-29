@@ -1,4 +1,4 @@
-space('bundle.vue.vm', function() {
+define(['lodash', 'vue'], function(_, Vue) {
 
     var store = {};
 
@@ -19,7 +19,7 @@ space('bundle.vue.vm', function() {
         ensure: function (definition) {
             var instance;
             var selector = definition.el;
-            if( ! bundle.vue.vm.has(selector)) {
+            if( ! this.has(selector)) {
                 instance = new Vue(definition);
                 this.set(selector, instance);
             }

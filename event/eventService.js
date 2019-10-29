@@ -1,4 +1,4 @@
-define(function() {
+define(['jrails/helper/php'], function(phpHelper) {
 
     /**
      * Работа с событиями
@@ -23,7 +23,7 @@ define(function() {
             }
             this._initEventArray(eventName);
             this.handlers[eventName].push(handler);
-            console.info('Register handler (' + bundle.helper.php.get_type(handler) + ') for event "' + eventName + '"');
+            console.info('Register handler (' + phpHelper.get_type(handler) + ') for event "' + eventName + '"');
         },
 
         /**
@@ -85,13 +85,13 @@ define(function() {
         },
 
         _initEventArray: function(eventName) {
-            if(!bundle.helper.php.isset(this.handlers[eventName])) {
+            if(!phpHelper.isset(this.handlers[eventName])) {
                 this.handlers[eventName] = [];
             }
         },
 
         _runHandlersForEvent: function (eventName, handlers, params) {
-            if(bundle.helper.php.empty(handlers)) {
+            if(phpHelper.empty(handlers)) {
                 console.info('Not found handlers for event "' + eventName + '"');
                 return;
             }
@@ -107,10 +107,10 @@ define(function() {
             }*/
         },
         _runHandler: function (eventName, handler, params) {
-            if(bundle.helper.php.is_object(handler)) {
+            if(phpHelper.is_object(handler)) {
                 handler.run(params);
                 console.info('Run handler (object) for event "' + eventName + '"');
-            } else if(bundle.helper.php.is_function(handler)) {
+            } else if(phpHelper.is_function(handler)) {
                 handler(params);
                 console.info('Run handler (function) for event "' + eventName + '"');
             }
