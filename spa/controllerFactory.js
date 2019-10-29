@@ -14,7 +14,8 @@ define(['jrails/vue/vm', 'jrails/spa/layer', 'jrails/spa/query', 'lodash'], func
     };
 
     var loadTemplate = function (controller, templateFileName) {
-        require([templateFileName], function (templateHtml) {
+        var templateFileAlias = 'text!' + templateFileName;
+        require([templateFileAlias], function (templateHtml) {
             initTemplate(controller, templateHtml);
         });
     };
@@ -24,8 +25,7 @@ define(['jrails/vue/vm', 'jrails/spa/layer', 'jrails/spa/query', 'lodash'], func
             controller.onReady();
         }
         if( ! _.isEmpty(controller.templateFile)) {
-            var templateFileName = 'text!' + controller.templateFile;
-            loadTemplate(controller, templateFileName);
+            loadTemplate(controller, controller.templateFile);
         }
     };
 
