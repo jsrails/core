@@ -1,4 +1,4 @@
-space('bundle.vue.loader', function() {
+define(['lodash', 'jrails/spa/helper', 'jrails/spa/layer', 'jrails/vue/vm', 'jrails/kernel/loader'], function(_, spaHelper, spaLayer, vm, kernelLoader) {
 
     var helper = {
 
@@ -36,13 +36,13 @@ space('bundle.vue.loader', function() {
         request: null,
 
         loadTemplate: function (request, callback) {
-            var templateUrl = window.bundle.spa.helper.getTemplateUrl(request);
+            var templateUrl = spaHelper.getTemplateUrl(request);
             $.ajax({
                 url: templateUrl,
                 success: function (data) {
                     callback();
-                    if (window.bundle.spa.helper.isTemplate(data)) {
-                        bundle.spa.layer.add(data, request);
+                    if (spaHelper.isTemplate(data)) {
+                        spaLayer.add(data, request);
                     }
                 }
             });
@@ -51,8 +51,8 @@ space('bundle.vue.loader', function() {
         loadDepends: function (request, controller) {
             if(_.isEmpty(controller.depends)) {
                 //d(controller);
-                bundle.vue.vm.ensure(controller);
-                //bundle.spa.helper.getVueInstance(controller);
+                vm.ensure(controller);
+                //spaHelper.getVueInstance(controller);
                 //controller.onLoadDepends(request);
                 helper.runController(controller, request);
                 return;
@@ -63,8 +63,8 @@ space('bundle.vue.loader', function() {
                 if(cbCount === controller.depends.length) {
                     //d(cbCount);
                     //d(controller);
-                    //bundle.spa.helper.getVueInstance(controller);
-                    bundle.vue.vm.ensure(controller);
+                    //spaHelper.getVueInstance(controller);
+                    vm.ensure(controller);
                     //controller.onLoadDepends(request);
                     helper.runController(controller, request);
                 }
@@ -72,50 +72,50 @@ space('bundle.vue.loader', function() {
             for(var k in controller.depends) {
                 var dependClass = controller.depends[k];
                 if(dependClass.search(/\//g) !== -1) {
-                    bundle.kernel.loader.requireScript(dependClass, cb);
+                    this.requireScript(dependClass, cb);
                 } else {
-                    bundle.kernel.loader.requireClass(dependClass, cb);
+                    this.requireClass(dependClass, cb);
                 }
             }
         },
 
         run: function (requestSource) {
-            //d(requestSource);
+            //console.log(requestSource);
             var request = _.clone(requestSource);
             this.request = request;
-            bundle.spa.helper.prepareRequest(request);
-            var callback = function () {
-                var className = window.bundle.spa.helper.getClassName(request, 'controller');
-                bundle.spa.layer.show(request);
-                var cb = function () {
-                    var controller = use(className);
-                    if( ! _.isEmpty(controller)) {
-                        if(_.isEmpty(controller.isInit)) {
-                            controller.isInit = true;
-                            controller.el = '#app-'+request.controller+'-'+request.action;
-                            bundle.vue.loader.loadDepends(request, controller);
-                        }
-                    }
-                    bundle.spa.helper.registerEventHandlers(request);
-                };
-                if(bundle.kernel.loader.isDefined(className)) {
-                    cb();
-                } else {
-                    bundle.kernel.loader.requireClass(className, cb);
+            spaHelper.prepareRequest(request);
+
+            //var className = spaHelper.getClassName(request, 'controller');
+            //console.log(className);
+            spaLayer.show(request);
+            var controller = request.controllerInstance;
+            if( ! _.isEmpty(controller)) {
+                if(_.isEmpty(controller.isInit)) {
+                    controller.isInit = true;
+                    controller.el = '#app-'+request.controller+'-'+request.action;
+                    spaLayer.add222(controller.template, controller.el);
+                    //this.loadDepends(request, controller);
                 }
-            };
-            this.doRequest(request, callback);
+            }
+            spaHelper.registerEventHandlers(request);
+            /*if(kernelLoader.isDefined(className)) {
+                cb();
+            } else {
+                kernelLoader.requireClass(className, cb);
+            }*/
+
+            //this.doRequest(request, callback);
         },
 
-        doRequest: function (request, callback) {
-            var isExists = bundle.spa.layer.has(request);
+        /*doRequest: function (request, callback) {
+            var isExists = spaLayer.has(request);
             if (isExists) {
                 callback();
             } else {
 
                 this.loadTemplate(request, callback);
             }
-        },
+        },*/
 
     };
 
