@@ -87,12 +87,13 @@ define(['lodash', 'jrails/spa/helper', 'jrails/spa/layer', 'jrails/vue/vm', 'jra
 
             //var className = spaHelper.getClassName(request, 'controller');
             //console.log(className);
-            spaLayer.show(request);
+            //spaLayer.show(request);
             var controller = request.controllerInstance;
             if( ! _.isEmpty(controller)) {
                 if(_.isEmpty(controller.isInit)) {
                     controller.isInit = true;
                     controller.el = '#app-'+request.controller+'-'+request.action;
+
                     spaLayer.add222(controller.template, controller.el);
                     //this.loadDepends(request, controller);
                 }
