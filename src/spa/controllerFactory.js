@@ -38,7 +38,6 @@ define(['jrails/vue/vm', 'jrails/spa/layer', 'jrails/spa/query', 'lodash'], func
         },
         createByClassName: function (controllerClassName, query) {
             spaQuery.set(query);
-            define('query', [], );
             require([controllerClassName], onReady);
         }
     };
