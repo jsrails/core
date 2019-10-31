@@ -13,6 +13,10 @@ define(['lodash', 'toastr'], function(_, toastr) {
          */
         show: function (entity) {
             entity.options = _.defaultTo(entity.options, this.options);
+            if( ! _.isObject(toastr)) {
+                console.info('Notify driver not defined!');
+                return;
+            }
             var method = toastr[entity.type];
             method(entity.message, entity.options);
         },
