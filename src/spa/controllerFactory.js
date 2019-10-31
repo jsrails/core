@@ -30,6 +30,9 @@ define(['jrails/vue/vm', 'jrails/spa/layer', 'jrails/spa/query', 'lodash'], func
         if( ! _.isEmpty(controller.templateFile)) {
             loadTemplate(controller, controller.templateFile);
         }
+        if( ! _.isEmpty(controller.templateCode)) {
+            initTemplate(controller, controller.templateCode);
+        }
     };
 
     return {
@@ -39,7 +42,11 @@ define(['jrails/vue/vm', 'jrails/spa/layer', 'jrails/spa/query', 'lodash'], func
         createByClassName: function (controllerClassName, query) {
             spaQuery.set(query);
             require([controllerClassName], onReady);
-        }
+        },
+        createByClass: function (controllerClass, query) {
+            spaQuery.set(query);
+            onReady(controllerClass);
+        },
     };
 
 });
