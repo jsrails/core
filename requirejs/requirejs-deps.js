@@ -1,6 +1,6 @@
 ({
     //name: "jrails/index",
-    out: "../../../src/assets/script/vendor.js",
+    out: "../../../src/assets/vendor.js",
     baseUrl: "../../..",
     writeBuildTxt: true,
     paths: {
