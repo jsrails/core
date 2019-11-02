@@ -7,6 +7,7 @@ var replace = require('gulp-replace');
 var csso = require('gulp-csso');
 var clean = require('gulp-clean');
 var helper = require('./helper');
+var copy = require('copy');
 
 var builder = {
     //firstCharExp: /^([\s\S]{1})/g,
@@ -21,6 +22,10 @@ var builder = {
             gulp1 = gulp1.pipe(minify());
         }
         gulp1.pipe(gulp.dest(targetDest));
+    },
+    copy: function (sourceMap, targetDest, cb) {
+        cb = typeof cb === 'function' ? cb : function () {};
+        copy(sourceMap, targetDest, cb);
     },
     buildStyle: function (sourceMap, targetDest, targetFileName, isMinify) {
         var listFilesDocBlockStyle = helper.renderIncludedList(sourceMap);
