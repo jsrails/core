@@ -23,6 +23,11 @@ var builder = {
         }
         gulp1.pipe(gulp.dest(targetDest));
     },
+    deleteDir: function (sourceMap) {
+        return gulp
+            .src(sourceMap, {read: false})
+            .pipe(clean());
+    },
     copy: function (sourceMap, targetDest, cb) {
         cb = typeof cb === 'function' ? cb : function () {};
         copy(sourceMap, targetDest, cb);
