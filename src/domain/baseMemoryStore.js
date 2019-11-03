@@ -1,4 +1,4 @@
-space('bundle.domain.baseMemoryStore', function() {
+define(function() {
 
     /**
      * Базовый класс для хранилища состояния в ОЗУ
