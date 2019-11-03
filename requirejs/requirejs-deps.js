@@ -1,8 +1,5 @@
-({
-    //name: "jrails/index",
-    out: "../../../src/assets/vendor.js",
-    baseUrl: "../../..",
-    writeBuildTxt: true,
+module.exports = {
+    baseUrl: ".",
     paths: {
         jrails: 'node_modules/jrails/src',
         DirectorRouter: 'node_modules/director/build/director.min',
@@ -16,34 +13,6 @@
         toastr: 'node_modules/jrails/src/notify/toastrMock',
         jqueryUi: 'node_modules/jquery-ui/jquery-ui.min',
     },
-    include: [
-        'node_modules/requirejs/require',
-        'DirectorRouter',
-        'lodash',
-        'jquery',
-        'twitterBootstrap',
-        'vue',
-        'text',
-        'jqueryUi',
-        'jrails/spa/router',
-        'jrails/helper/php',
-        'jrails/event/eventService',
-        'jrails/helper/class',
-        'jrails/helper/localStorage',
-        'jrails/domain/baseLocalStorage',
-        'jrails/kernel/container',
-        'jrails/rest/client',
-        'jrails/notify/notifyTypeEnum',
-        'jrails/notify/notifyService',
-        'jrails/notify/driver/toastrDriver',
-        'jrails/bootstrap/modal/modalService',
-        'jrails/vue/vm',
-        'jrails/spa/layer',
-        'jrails/spa/query',
-        'jrails/spa/controllerFactory',
-    ],
-    //cssIn: "path/to/main.css",
-    //out: "path/to/css-optimized.css",
     shim: {
         'DirectorRouter': {
             exports: 'Router'
@@ -69,4 +38,4 @@
             exports: 'Vue'
         },
     }
-});
+};
